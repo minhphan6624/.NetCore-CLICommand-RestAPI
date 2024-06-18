@@ -1,0 +1,35 @@
+# Visual Studio
+.vs/
+*.user
+*.suo
+
+# Build directories
+bin/
+obj/
+
+# User-specific files
+*.rsuser
+*.sln.docstates
+
+# Rider
+.idea/
+
+# Visual Studio Code
+.vscode/
+
+# Npm Packages
+node_modules/
+
+# Logs
+*.log
+
+# Entity Framework
+Migrations/
+
+# OS Generated Files
+.DS_Store
+Thumbs.db
+
+# Secrets and sensitive data
+secrets.json
+appsettings.Development.json
