@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "/+sFZ6j2jYODrTrkeSZVtT+TEyUHMtVqpGa5ciooywaCwbMV8yegg3rN0cMwR5TYSsiZYiLA8NDTzFY5T/7d1g==",
+  "dgSpecHash": "oMs43oNm9uMox7Zs65bGFBSroBHQxhoXMOtnNJzVTvYARPTiStSVN2/aJHxo/ODrsQJy2Rqdf3fmD4lcAuFqIA==",
   "success": true,
-  "projectFilePath": "c:\\Users\\quang\\src\\CLICommandStorage\\CLICommandStorage.csproj",
+  "projectFilePath": "C:\\Users\\quang\\src\\CLICommandStorage\\CLICommandStorage.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\quang\\.nuget\\packages\\microsoft.entityframeworkcore\\8.0.6\\microsoft.entityframeworkcore.8.0.6.nupkg.sha512",
     "C:\\Users\\quang\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\8.0.6\\microsoft.entityframeworkcore.abstractions.8.0.6.nupkg.sha512",
