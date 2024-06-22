@@ -1,25 +1,26 @@
 using CLICommandStorage.Models;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace CLICommandStorage.Data
 {
-    public class ConcreteCommandRepo : ICommandRepo
+    public class MockCommandRepo : ICommandRepo
     {
+        private readonly List<Command> _commands = new List<Command>
+        {
+            new Command{Id=0, CommandName="Example Command 1", Description="This is the first example command"},
+            new Command{Id=1, CommandName="Example Command 2", Description="This is the second example command"},
+            // Add more commands as needed
+        };
+
         public IEnumerable<Command> GetAllCommands()
         {
-            var commands = new List<Command>
-            {
-                new Command{Id = 0, HowTo = "Boil an egg", Line = "Boil water", Description = "Boil water, add egg, cook for 5 minutes"},
-                new Command{Id = 1, HowTo = "Fry an egg", Line = "Fry egg", Description = "Fry egg in pan, add salt and pepper"},
-                new Command{Id = 2, HowTo = "Scramble an egg", Line = "Scramble egg", Description = "Scramble egg in bowl, add salt and pepper"}
-            };
-            
-            return commands;
+            return _commands;
         }
 
         public Command GetCommandById(int id)
         {
-            return new Command{Id = 0, HowTo = "Boil an egg", Line = "Boil water", Description = "Boil water, add egg, cook for 5 minutes"};
+            return _commands.FirstOrDefault(c => c.Id == id);
         }
     }
 }

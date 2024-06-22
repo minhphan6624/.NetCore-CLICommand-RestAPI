@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CLICommandStorage")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c2f74e8b82bf1cbcfd3e46a1a9cd7f1becfa662a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+be199355a495d2c310ca94771d55a24eebd40b44")]
 [assembly: System.Reflection.AssemblyProductAttribute("CLICommandStorage")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CLICommandStorage")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -1,8 +1,19 @@
+using CLICommandStorage.Data;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// Adding services to the container.
 
+// add controllers to the services
 builder.Services.AddControllers();
+
+// Register the repository as a service
+builder.Services.AddScoped<ICommandRepo, MockCommandRepo>();
+
+// Add the database context to the services
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

@@ -1,3 +1,4 @@
+using System.Windows.Input;
 using CLICommandStorage.Data;
 using CLICommandStorage.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -9,7 +10,13 @@ namespace CLICommandStorage.Controllers
     [ApiController]
     public class CommandController : ControllerBase 
     {
-        private readonly ConcreteCommandRepo _repository = new ConcreteCommandRepo();
+        private readonly ICommandRepo _repository;
+
+        //Dependency Injection
+        public CommandController(ICommandRepo repository)
+        {
+            _repository = repository;
+        }
 
         // GET /api/commands
         [HttpGet]
@@ -21,10 +28,14 @@ namespace CLICommandStorage.Controllers
 
         // GET /api/commands/{id}
         [HttpGet("{id}")]
-        public ActionResult <IEnumerable<Command>> GetCommandById(int id)
+        public ActionResult<Command> GetCommandById(int id)
         {
             var command = _repository.GetCommandById(id);
-            return Ok(command);
+             if (command != null)
+            {
+                return Ok(command);
+            }
+            return NotFound();
         }
     }
 }
