@@ -17,6 +17,6 @@ public class SqlCommandRepo : ICommandRepo
 
     public Command GetCommandById(int id)
     {
-        return _context.Commands.FirstOrDefault(p => p.Id == id) ?? throw new ArgumentNullException(nameof(id));
+        return _context.Commands.FirstOrDefault(p => p.Id == id);
     }
 }

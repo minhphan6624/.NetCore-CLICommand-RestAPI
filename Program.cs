@@ -9,7 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 
 // Register the repository as a service
-builder.Services.AddScoped<ICommandRepo, MockCommandRepo>();
+builder.Services.AddScoped<ICommandRepo, SqlCommandRepo>();
 
 // Add the database context to the services
 builder.Services.AddDbContext<AppDbContext>(options =>
