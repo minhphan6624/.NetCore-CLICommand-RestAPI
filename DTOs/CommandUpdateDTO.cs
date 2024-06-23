@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace CLICommandStorage.DTOs
 {
-    public class CommandCreateDTO
+    public class CommandUpdateDTO
     {
         [Required]
         [MaxLength(250)]

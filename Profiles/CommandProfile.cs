@@ -13,6 +13,9 @@ namespace CLICommandStorage.Profiles
 
             //Map a CommandCreateDTO to a Command for POST requests
             CreateMap<CommandCreateDTO, Command>();
+
+            //Map a CommandUpdateDTO to a Command for PUT requests
+            CreateMap<CommandUpdateDTO, Command>(); 
         }
     }
 }

@@ -4,22 +4,13 @@ namespace CLICommandStorage.Data
 {
     public interface ICommandRepo
     {
-        // Get all commands
-        IEnumerable<Command> GetAllCommands();
-
-        //Get command by id
-        Command GetCommandById(int id);
-
-        // Create a command
-        void CreateCommand(Command cmd);
-
-        // Update a command
-        // void UpdateCommand(Command cmd);
+        IEnumerable<Command> GetAllCommands();// Get all commands
+        Command GetCommandById(int id); //Get command by id
+        void CreateCommand(Command cmd); // Create a command
+        void UpdateCommand(Command cmd); // Update a command
 
         // //Delete a command
         // void DeleteCommand(int id);
-
-        // Save changes
-        bool SaveChanges();
+        bool SaveChanges();// Save changes
     }
 }

@@ -58,5 +58,25 @@ namespace CLICommandStorage.Controllers
             //Create a commandReadDTO from the commandModel to return to the client
         }
 
+        // PUT /api/commands/{id}
+        [HttpPut("{id}")]
+        public ActionResult UpdateCommand(int id, CommandUpdateDTO commandUpdateDTO)
+        {
+            var commandModelFromRepo = _repository.GetCommandById(id);
+            if (commandModelFromRepo == null)
+            {
+                return NotFound();
+            }
+            
+            // Map the commandUpdateDTO to the commandModelFromRepo 
+            _mapper.Map(commandUpdateDTO, commandModelFromRepo);
+
+            //Good practice to update the command in the repository to reflect the changes in the dbcontext
+            _repository.UpdateCommand(commandModelFromRepo);
+
+            _repository.SaveChanges(); //Flush the changes to the DB
+
+            return NoContent();
+        }
     }
 }

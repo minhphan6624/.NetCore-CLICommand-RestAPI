@@ -30,15 +30,16 @@ public class SqlCommandRepo : ICommandRepo
         _context.Commands.Add(cmd);
     }
 
-    // public void UpdateCommand(Command cmd)
-    // {
-    //     // Check if the command exists
-    //     var existingCommand = _context.Commands.FirstOrDefault(p => p.Id == cmd.Id);
-    //     if (existingCommand == null)
-    //     {
-    //         throw new ArgumentNullException(nameof(existingCommand));
-    //     }
-        
+    public void UpdateCommand(Command cmd)
+    {
+        // Check if the command exists
+        var existingCommand = _context.Commands.FirstOrDefault(p => p.Id == cmd.Id);
+        if (existingCommand == null)
+        {
+            throw new ArgumentNullException(nameof(existingCommand));
+        }
+    }
+    
     //     existingCommand.Property1 = cmd.Property1;
     //     existingCommand.Property2 = cmd.Property2;
         
