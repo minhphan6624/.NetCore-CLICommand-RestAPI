@@ -1,5 +1,7 @@
 using System.Windows.Input;
+using AutoMapper;
 using CLICommandStorage.Data;
+using CLICommandStorage.DTOs;
 using CLICommandStorage.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,31 +13,50 @@ namespace CLICommandStorage.Controllers
     public class CommandController : ControllerBase 
     {
         private readonly ICommandRepo _repository;
+        private readonly IMapper _mapper;
 
         //Dependency Injection
-        public CommandController(ICommandRepo repository)
+        public CommandController(ICommandRepo repository, IMapper mapper)
         {
             _repository = repository;
+            _mapper = mapper;
         }
 
         // GET /api/commands
         [HttpGet]
-        public ActionResult <IEnumerable<Command>> GetAllCommands()
+        public ActionResult <IEnumerable<CommandReadDTO>> GetAllCommands()
         {
             var commands = _repository.GetAllCommands();
-            return Ok(commands);
+            return Ok(_mapper.Map<IEnumerable<CommandReadDTO>>(commands));
         }
 
         // GET /api/commands/{id}
-        [HttpGet("{id}")]
-        public ActionResult<Command> GetCommandById(int id)
+        [HttpGet("{id}", Name="GetCommandById")]
+        public ActionResult <CommandReadDTO> GetCommandById(int id)
         {
             var command = _repository.GetCommandById(id);
              if (command != null)
             {
-                return Ok(command);
+                return Ok(_mapper.Map<CommandReadDTO>(command));
             }
             return NotFound();
         }
+
+        // POST /api/commands
+        [HttpPost]
+        public ActionResult <CommandReadDTO> CreateCommand(CommandCreateDTO commandCreateDTO)
+        {
+            //Map a command from a commandCreateDTO
+            var commandModel = _mapper.Map<Command>(commandCreateDTO);
+
+            _repository.CreateCommand(commandModel);
+            _repository.SaveChanges();
+
+            var commandReadDTO = _mapper.Map<CommandReadDTO>(commandModel);
+
+            return CreatedAtRoute(nameof(GetCommandById), new {Id = commandReadDTO.Id}, commandReadDTO);
+            //Create a commandReadDTO from the commandModel to return to the client
+        }
+
     }
 }

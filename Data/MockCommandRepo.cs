@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace CLICommandStorage.Data
 {
-    public class MockCommandRepo : ICommandRepo
+    public class MockCommandRepo
     {
         private readonly List<Command> _commands = new List<Command>
         {

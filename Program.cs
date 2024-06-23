@@ -3,12 +3,12 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Adding services to the container.
+// ------------------- Managing services -------------------
 
 // add controllers to the services
 builder.Services.AddControllers();
 
-// Register the repository as a service
+// Register the repository to the service container
 builder.Services.AddScoped<ICommandRepo, SqlCommandRepo>();
 
 // Add the database context to the services
@@ -22,6 +22,7 @@ builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+// ------------------- Server starting point -------------------
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

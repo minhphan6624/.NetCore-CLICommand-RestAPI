@@ -1,9 +1,9 @@
 namespace CLICommandStorage.DTOs
 {
-    public class CommandReadDTO
+    public class CommandCreateDTO
     {
-        public int Id { get; set; }
-
         public string CommandName { get; set; } = String.Empty;
+
+        public string Desctiption { get; set; } = String.Empty;
     }
 }

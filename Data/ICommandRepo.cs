@@ -9,5 +9,17 @@ namespace CLICommandStorage.Data
 
         //Get command by id
         Command GetCommandById(int id);
+
+        // Create a command
+        void CreateCommand(Command cmd);
+
+        // Update a command
+        // void UpdateCommand(Command cmd);
+
+        // //Delete a command
+        // void DeleteCommand(int id);
+
+        // Save changes
+        bool SaveChanges();
     }
 }

@@ -8,7 +8,11 @@ namespace CLICommandStorage.Profiles
     {
         public CommandProfile()
         {
+            //Map a Command to a CommandReadDTO for GET requests
             CreateMap<Command, CommandReadDTO>();
+
+            //Map a CommandCreateDTO to a Command for POST requests
+            CreateMap<CommandCreateDTO, Command>();
         }
     }
 }
