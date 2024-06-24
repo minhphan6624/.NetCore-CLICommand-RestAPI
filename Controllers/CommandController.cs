@@ -55,7 +55,6 @@ namespace CLICommandStorage.Controllers
             var commandReadDTO = _mapper.Map<CommandReadDTO>(commandModel);
 
             return CreatedAtRoute(nameof(GetCommandById), new {Id = commandReadDTO.Id}, commandReadDTO);
-            //Create a commandReadDTO from the commandModel to return to the client
         }
 
         // PUT /api/commands/{id}
@@ -78,5 +77,7 @@ namespace CLICommandStorage.Controllers
 
             return NoContent();
         }
+
+
     }
 }

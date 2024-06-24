@@ -13,5 +13,8 @@ namespace CLICommandStorage.Models
 
         [Required]
         public string Description { get; set; } = String.Empty;
+
+        [Required]
+        public string Platform { get; set; } = String.Empty;
     }
 }

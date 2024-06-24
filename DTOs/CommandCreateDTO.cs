@@ -9,6 +9,9 @@ namespace CLICommandStorage.DTOs
         public string CommandName { get; set; } = String.Empty;
 
         [Required]
-        public string Desctiption { get; set; } = String.Empty;
+        public string Description { get; set; } = String.Empty;
+
+        [Required]
+        public string Platform { get; set; } = String.Empty;
     }
 }
