@@ -34,31 +34,24 @@ public class SqlCommandRepo : ICommandRepo
     {
         // Check if the command exists
         var existingCommand = _context.Commands.FirstOrDefault(p => p.Id == cmd.Id);
+
         if (existingCommand == null)
         {
             throw new ArgumentNullException(nameof(existingCommand));
         }
+
     }
     
-    //     existingCommand.Property1 = cmd.Property1;
-    //     existingCommand.Property2 = cmd.Property2;
-        
-    //     // Update other properties as needed
-    //     _context.Commands.Update(existingCommand);
-    // }
+   public void DeleteCommand(Command cmd)
+   {
+       if (cmd == null)
+       {
+           throw new ArgumentNullException(nameof(cmd));
+       }
 
-    // public void DeleteCommand(int id)
-    // {
-    //     var command = _context.Commands.FirstOrDefault(p => p.Id == id);
-    //     if (command == null)
-    //     {
-    //         throw new ArgumentNullException(nameof(command));
-    //     }
+       _context.Commands.Remove(cmd);
+   }
 
-    //     _context.Commands.Remove(command);
-    // }
-
-    //Whene
     public bool SaveChanges()
     {
         return _context.SaveChanges() >=0 ;

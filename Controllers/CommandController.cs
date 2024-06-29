@@ -3,6 +3,7 @@ using AutoMapper;
 using CLICommandStorage.Data;
 using CLICommandStorage.DTOs;
 using CLICommandStorage.Models;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CLICommandStorage.Controllers
@@ -78,6 +79,54 @@ namespace CLICommandStorage.Controllers
             return NoContent();
         }
 
+        //PATCH /api/commands/{id}
+        [HttpPatch("{id}")]
+        public ActionResult PartialUpdateCommand(int id, JsonPatchDocument<CommandUpdateDTO> patchDoc)
+        {
+            var commandModelFromRepo = _repository.GetCommandById(id);
 
+            //Check if the model is present
+            if (commandModelFromRepo == null)
+            {
+                return NotFound();
+            }
+
+            //Create a new CommandUpdateDTO with the content we get from the repo 
+            var commandToPatch = _mapper.Map<CommandUpdateDTO>(commandModelFromRepo);
+
+            //Apply the changes to the command, and check for the validity using ModelState
+            patchDoc.ApplyTo(commandToPatch, ModelState);
+
+            //Validation check
+            if (!TryValidateModel(commandToPatch))
+            {
+                return ValidationProblem(ModelState);
+            }
+
+             // Map the CommandToPatch to the commandModelFromRepo 
+            _mapper.Map(commandToPatch, commandModelFromRepo);
+
+            //Good practice to update the command in the repository to reflect the changes in the dbcontext
+            _repository.UpdateCommand(commandModelFromRepo);
+
+             _repository.SaveChanges(); //Flush the changes to the DB
+
+             return NoContent();
+        }
+
+        [HttpDelete("{id}")]
+        public ActionResult DeleteCommand(int id)
+        {
+            var commandModelFromRepo = _repository.GetCommandById(id);
+            if (commandModelFromRepo == null)
+            {
+                return NotFound();
+            }
+
+            _repository.DeleteCommand(commandModelFromRepo);
+            _repository.SaveChanges();
+
+            return NoContent();
+        }
     }
 }

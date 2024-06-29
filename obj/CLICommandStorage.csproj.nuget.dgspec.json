@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\quang\\src\\CLICommandStorage\\CLICommandStorage.csproj": {}
+    "C:\\Users\\quang\\src\\side-projects\\CLICommandStorage\\CLICommandStorage.csproj": {}
   },
   "projects": {
-    "C:\\Users\\quang\\src\\CLICommandStorage\\CLICommandStorage.csproj": {
+    "C:\\Users\\quang\\src\\side-projects\\CLICommandStorage\\CLICommandStorage.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\quang\\src\\CLICommandStorage\\CLICommandStorage.csproj",
+        "projectUniqueName": "C:\\Users\\quang\\src\\side-projects\\CLICommandStorage\\CLICommandStorage.csproj",
         "projectName": "CLICommandStorage",
-        "projectPath": "C:\\Users\\quang\\src\\CLICommandStorage\\CLICommandStorage.csproj",
+        "projectPath": "C:\\Users\\quang\\src\\side-projects\\CLICommandStorage\\CLICommandStorage.csproj",
         "packagesPath": "C:\\Users\\quang\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\quang\\src\\CLICommandStorage\\obj\\",
+        "outputPath": "C:\\Users\\quang\\src\\side-projects\\CLICommandStorage\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

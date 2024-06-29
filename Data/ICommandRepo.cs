@@ -9,8 +9,8 @@ namespace CLICommandStorage.Data
         void CreateCommand(Command cmd); // Create a command
         void UpdateCommand(Command cmd); // Update a command
 
-        // //Delete a command
-        // void DeleteCommand(int id);
+        //Delete a command
+        void DeleteCommand(Command cmd);
         bool SaveChanges();// Save changes
     }
 }
